@@ -12,11 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: docker/login-action@v1
-        with:
+      with:
           username: ondrejsika
           password: ${{ secrets.DOCKERHUB_ONDREJSIKA_PASSWORD }}
     - uses: docker/login-action@v1
-        with:
+      with:
           username: sikalabs
           password: ${{ secrets.DOCKERHUB_SIKALABS_PASSWORD }}
     - name: Build the Docker image
