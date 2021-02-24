@@ -11,10 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # - run: docker login -u ondrejsika -p ${{secrets.DOCKERHUB_ONDREJSIKA_PASSWORD}}
-    - shell: bash
-      run: echo $DOCKERHUB_SIKALABS_PASSWORD | docker login -u sikalabs --password-stdin
-      env:
-        DOCKERHUB_SIKALABS_PASSWORD: ${{ secrets.DOCKERHUB_SIKALABS_PASSWORD }}
+    - uses: docker/login-action@v1
+        with:
+          username: ondrejsika
+          password: ${{ secrets.DOCKERHUB_ONDREJSIKA_PASSWORD }}
+    - uses: docker/login-action@v1
+        with:
+          username: sikalabs
+          password: ${{ secrets.DOCKERHUB_SIKALABS_PASSWORD }}
     - name: Build the Docker image
       run: make all
