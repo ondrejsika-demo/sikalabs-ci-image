@@ -15,9 +15,5 @@ jobs:
       with:
           username: ondrejsika
           password: ${{ secrets.DOCKERHUB_ONDREJSIKA_PASSWORD }}
-    - uses: docker/login-action@v1
-      with:
-          username: sikalabs
-          password: ${{ secrets.DOCKERHUB_SIKALABS_PASSWORD }}
     - name: Build the Docker image
       run: make all
