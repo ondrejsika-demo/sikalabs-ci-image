@@ -7,12 +7,11 @@ on:
     branches: [ ci ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
+    - run: docker login -u ondrejsika -p $DOCKERHUB_ONDREJSIKA_PASSWORD
+    - run: docker login -u sikalabs -p $DOCKERHUB_SIKALABS_PASSWORD
     - name: Build the Docker image
       run: make all
