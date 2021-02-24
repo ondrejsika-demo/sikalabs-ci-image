@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: docker login -u ondrejsika -p ${{secrets.DOCKERHUB_ONDREJSIKA_PASSWORD}}
+    # - run: docker login -u ondrejsika -p ${{secrets.DOCKERHUB_ONDREJSIKA_PASSWORD}}
     - run: docker login -u sikalabs -p ${{secrets.DOCKERHUB_SIKALABS_PASSWORD}}
     - name: Build the Docker image
       run: make all
